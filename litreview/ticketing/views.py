@@ -1,15 +1,21 @@
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
-from .models import Ticket
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from .models import Ticket
 
 
-class TicketCreateView(LoginRequiredMixin, CreateView):
+class TicketCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    model = Ticket
+    fields = ['title','description']
+    permission_required = 'ticketing.add_ticket'
+    
+    # session
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user.id
+        return super().form_valid(form)
+
+class TicketDetailView(PermissionRequiredMixin, DetailView):
     model = Ticket
     fields = ['title','description','user']
-    login_url = '/login/'
-    redirect_field_name = '/home'
-
-class TicketDetailView(DetailView):
-    model = Ticket
-    fields = ['title','description','user']
+    permission_required = 'ticketing.change_ticket'

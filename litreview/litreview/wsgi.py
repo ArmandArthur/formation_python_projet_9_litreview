@@ -1,5 +1,5 @@
 """
-WSGI config for ltreview project.
+WSGI config for litreview project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
