@@ -128,3 +128,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_REDIRECT_URL = '/ticketing/ticket/add'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+
+# Custom User
+AUTH_USER_MODEL = 'account.CustomUser'

@@ -1,0 +1,26 @@
+#page_login {
+    display: flex;
+    justify-content: center;
+}
+
+#page_login form {
+    width: 400px;
+    border: 1px solid red;
+    padding: 5px 10px;
+}
+
+#menu {
+    display: flex;
+}
+
+#menu div {
+    width: 50%;
+    background-color: #354dad;
+}
+
+#menu div a {
+    display: block;
+    color: white;
+    padding: 20px 10px 20px 10px;
+    text-align: center;
+}
