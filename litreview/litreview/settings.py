@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account',
+    'users',
     'ticketing'
 ]
 
@@ -136,4 +136,4 @@ STATICFILES_DIRS = [
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 
 # Custom User
-AUTH_USER_MODEL = 'account.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
