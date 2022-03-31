@@ -4,7 +4,11 @@ from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 
-
+# Créer une table transitoire car relation ManyToMany sur elle même.
+class CustomUsersInline(admin.TabularInline):
+    model = CustomUser.subscribes.through
+    fk_name = 'from_customuser'
+    
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
@@ -23,6 +27,10 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
-
+    inlines = (CustomUsersInline,)
+    exclude = ('subscribes',)
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+
+
