@@ -10,9 +10,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
-
+    username = models.CharField(max_length=128, default='')
+    
     #Subscribes
-    subscribes = models.ManyToManyField("self", symmetrical=False, blank=True)
+    subscribes = models.ManyToManyField("self", symmetrical=False, blank=True, related_name="followers")
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -20,4 +21,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.email
+        return self.username

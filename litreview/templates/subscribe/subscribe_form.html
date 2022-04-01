@@ -1,9 +1,6 @@
-{% extends 'base_connected.html' %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="S'abonner">
+</form>
 
-{% block content %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Créer">
-    </form>
-{% endblock %}
 

@@ -1,1 +1,22 @@
-{{owner.subscribes}}
+
+
+{% extends 'base_connected.html' %}
+{% block title %}<title>Page d'Abonnements</title>{% endblock title %}
+{% block content %}
+
+    {% include 'subscribe/subscribe_form.html' %}
+
+    Je suis abonné à :
+    <ul>
+    {% for subscribe in owner.subscribes.all %}
+        <li>{{ subscribe.id }} - {{ subscribe.username }}</li>
+    {% endfor %}
+    </ul>
+
+    Mes followers :
+    <ul>
+        {% for follower in owner.followers.all %}
+            <li>{{ follower.id }} - {{ follower.username }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -2,5 +2,11 @@ from django import forms
 from users.models import CustomUser
 
 class SubscribeForm(forms.Form):
-    user_subscribe = forms.ModelChoiceField(queryset=CustomUser.objects.all(), initial=0) 
+    
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+        self.fields['subscribe'].queryset = CustomUser.objects.exclude(followers__in=CustomUser.objects.filter(id=self.user.id))
+        
+    subscribe = forms.ModelChoiceField(queryset=None) 
     
