@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  {% block title %}{% endblock title %}
+  <link rel="stylesheet" href="{% static 'style.css'%}?{% now "U" %}">
+  <link rel="stylesheet" href="{% static 'login.css'%}?{% now "U" %}">
+</head>
+<body>
+    {% block menu %}
+      {% include 'menu_connected.html' %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>

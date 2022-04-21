@@ -1,0 +1,38 @@
+body {
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.subscribes-container li{
+    position: relative;
+    height: 40px;
+}
+.subscribes-container .delete{
+    position: absolute;
+    right: 32px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+delete:hover {
+    opacity: 1;
+  }
+  .delete:before, .delete:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .delete:before {
+    transform: rotate(45deg);
+  }
+  .delete:after {
+    transform: rotate(-45deg);
+  }
+  
