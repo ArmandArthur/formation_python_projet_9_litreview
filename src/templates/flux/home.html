@@ -1,0 +1,22 @@
+{% extends 'base_connected.html' %}
+{% block title %}<title>Page flux</title>{% endblock title %}
+{% block content %}
+    {% for post in post_list %}
+        {% if post.content_type == 'TICKET' %}
+        <div class="ticket">
+            <span>{{ post.id }} - {{ post.title }} </span>
+            <div>{{ post.description }}</div>
+            {% if post.reviews_rel.all|length == 0 %}
+                <div class="answer">
+                    <a href="{% url 'answer_ticket' post.id %}">Répondre une critique</a>
+                </div>
+            {% endif %}
+        </div> 
+        {% elif post.content_type == 'REVIEW' %}
+        <div class="review">
+            <span>{{ post.id }} - {{ post.title }} </span>
+            <div>{{ post.description }}</div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

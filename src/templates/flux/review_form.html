@@ -1,0 +1,12 @@
+{% extends 'base_connected.html' %}
+{% block title %}<title>Page de ticket</title>{% endblock title %}
+{% block content %}
+    <div class="answer_ticket">
+        Vous répondez au ticket : "{{ticket.title}}", qui a pour description "{{ticket.description}}" et comme image : ""
+    </div>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Créer">
+    </form>
+{% endblock %}
+

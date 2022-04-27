@@ -22,7 +22,7 @@ class Review(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=2038, blank=True)
     ticket: Ticket = models.ForeignKey(to=Ticket,
-                                   on_delete=models.CASCADE)
+                                   on_delete=models.CASCADE, related_name = 'reviews_rel')
     user: User = models.ForeignKey(to=settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,18 @@
+div.ticket
+{
+    margin: 20px;
+    border: 1px solid blue;
+    padding: 10px;
+    overflow:hidden;
+}
+div.review
+{
+    margin: 20px;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+div.answer{
+    float:right;
+    clear:right;
+}

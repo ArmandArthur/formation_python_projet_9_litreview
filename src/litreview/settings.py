@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'ticketing',
-    'subscribe'
+    'subscribe',
+    'flux'
 ]
 
 MIDDLEWARE = [

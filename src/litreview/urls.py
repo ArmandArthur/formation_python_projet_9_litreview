@@ -22,9 +22,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('flux/', include('flux.urls')),
     path('ticketing/', include('ticketing.urls')),
     path('users/', include('users.urls')),
     path('subscribe/', include('subscribe.urls')),
+
     # path('', include('account.urls')),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
