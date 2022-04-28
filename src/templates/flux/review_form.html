@@ -2,7 +2,10 @@
 {% block title %}<title>Page de ticket</title>{% endblock title %}
 {% block content %}
     <div class="answer_ticket">
-        Vous répondez au ticket : "{{ticket.title}}", qui a pour description "{{ticket.description}}" et comme image : ""
+        Vous répondez au ticket : "{{ticket.title}}", qui a pour description "{{ticket.description}}" et comme image :
+        {% if post.image  %}
+            <img src="/media/{{ post.image }}" width="150" height="150"></img>
+        {% endif %}
     </div>
     <form method="post">{% csrf_token %}
         {{ form.as_p }}

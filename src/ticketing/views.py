@@ -7,7 +7,7 @@ from .models import Ticket, Review
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
     model = Ticket
-    fields = ['title','description']
+    fields = ['title','description', 'image']
     # permission_required = 'ticketing.add_ticket'
     
     # session

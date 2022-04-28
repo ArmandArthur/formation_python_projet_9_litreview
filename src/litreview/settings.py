@@ -129,7 +129,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/users/login'
-LOGIN_REDIRECT_URL = '/ticketing/ticket/add'
+LOGIN_REDIRECT_URL = '/flux/home'
 LOGOUT_REDIRECT_URL = '/users/login'
 
 STATICFILES_DIRS = [
@@ -140,3 +140,9 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBacke
 
 # Custom User
 AUTH_USER_MODEL = 'users.CustomUser'
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

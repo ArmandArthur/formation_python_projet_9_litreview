@@ -1,18 +1,39 @@
 div.ticket
 {
-    margin: 20px;
-    border: 1px solid blue;
-    padding: 10px;
-    overflow:hidden;
+    margin: 20px 100px;
+    border: 1px solid black;
+
 }
 div.review
 {
-    margin: 20px;
-    border: 1px solid green;
-    padding: 10px;
+    margin: 20px 100px;
+    border: 1px solid black;
+    background-color: blanchedalmond;
 }
 
 div.answer{
     float:right;
+    clear:right;
+}
+div.content{
+    padding: 40px 20px;
+    overflow:hidden;
+}
+
+div.review .title,
+div.ticket .title
+{
+    padding: 10px;
+    color: white;
+    background: black;
+}
+
+div.review .author,
+div.ticket .author
+{
+    float:right;
+    color:grey;
+    font-size: 10px;
+    font-style: italic;
     clear:right;
 }

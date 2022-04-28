@@ -4,9 +4,11 @@ from django.views.generic.edit import CreateView, FormView
 from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ticketing.models import Ticket, Review
+from users.models import CustomUser
 from itertools import chain
 from django.db.models import CharField, Value
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 class FluxListView(LoginRequiredMixin, ListView):
     model = Ticket
@@ -14,17 +16,21 @@ class FluxListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(FluxListView, self).get_context_data(**kwargs)
-        tickets = Ticket.objects.filter()
-        tickets = tickets.annotate(content_type=Value('TICKET', CharField()))
-        reviews = Review.objects.filter()
-        reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
+        tickets_followers = Ticket.objects.filter(user__followers=self.request.user.id).annotate(content_type=Value('TICKET', CharField()))
+        tickets_owner = Ticket.objects.filter(user=self.request.user.id).annotate(content_type=Value('TICKET', CharField()))
+        tickets =  chain(tickets_followers, tickets_owner)
+        reviews_followers = Review.objects.filter(user__followers=self.request.user.id).annotate(content_type=Value('REVIEW', CharField()))
+        reviews_owner = Review.objects.filter(user=self.request.user.id).annotate(content_type=Value('REVIEW', CharField()))
+        reviews = chain(reviews_followers, reviews_owner)
         posts = sorted(
             chain(reviews, tickets), 
             key=lambda post: post.created_at, 
             reverse=True
         )
+        owner = CustomUser.objects.get(id=self.request.user.id)
         context.update({
             'post_list': posts,
+            'owner': owner,
         })
         return context
 

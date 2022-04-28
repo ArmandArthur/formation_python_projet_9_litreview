@@ -1,21 +1,43 @@
 {% extends 'base_connected.html' %}
 {% block title %}<title>Page flux</title>{% endblock title %}
+{% load i18n %}
 {% block content %}
+    <a href="{% url 'add_ticket' %}">
+        <button>Créer un ticket</button>
+    </a>
+    Les personnes que je suis: 
+    {% for subscribe in owner.subscribes.all %}
+        <div>{{ subscribe.username }}</div>
+    {% endfor %}
     {% for post in post_list %}
         {% if post.content_type == 'TICKET' %}
         <div class="ticket">
-            <span>{{ post.id }} - {{ post.title }} </span>
-            <div>{{ post.description }}</div>
-            {% if post.reviews_rel.all|length == 0 %}
-                <div class="answer">
-                    <a href="{% url 'answer_ticket' post.id %}">Répondre une critique</a>
-                </div>
-            {% endif %}
+            <div class="title">{{ post.id }} - {{ post.title }} </div>
+            <div class="content">
+                {% if post.image  %}
+                    <img src="/media/{{ post.image }}" width="150" height="150"></img>
+                {% endif %}
+                <div>{{ post.description }}</div>
+                {% if post.reviews_rel.all|length == 0 %}
+                    <div class="answer">
+                        <a href="{% url 'answer_ticket' post.id %}">Répondre une critique</a>
+                    </div>
+                {% endif %}
+                <div class="author">Ecrit par {{ post.user.username }} à {% language 'fr' %}{{ post.created_at|date:'d F Y h:i' }}{% endlanguage %}</div>
+            </div>
         </div> 
         {% elif post.content_type == 'REVIEW' %}
         <div class="review">
-            <span>{{ post.id }} - {{ post.title }} </span>
-            <div>{{ post.description }}</div>
+            <div class="title">{{ post.id }} - {{ post.title }} </div>
+            <div class="content">
+                <div>{{ post.description }}</div>
+                <div>en réponse à {{post.ticket.title}}</div>
+                <div>{% if post.ticket.image  %}
+                    <img src="/media/{{ post.ticket.image }}" width="50" height="50"></img>
+                    {% endif %}
+                </div>
+                <div class="author" >Ecrit par {{ post.user.username }} à {% language 'fr' %}{{ post.created_at|date:'d F Y h:i' }}{% endlanguage %}</div>
+            </div>
         </div>
         {% endif %}
     {% endfor %}
