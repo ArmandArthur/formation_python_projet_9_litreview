@@ -10,7 +10,13 @@ div.review
     border: 1px solid black;
     background-color: blanchedalmond;
 }
-
+div.review .ticket{
+    margin: 20px 10px;
+    background-color: white;
+}
+div.review .ticket {
+    margin: 20px 10px;
+}
 div.answer{
     float:right;
     clear:right;
@@ -27,7 +33,10 @@ div.ticket .title
     color: white;
     background: black;
 }
-
+div.review > .title
+{
+    background: maroon;
+}
 div.review .author,
 div.ticket .author
 {

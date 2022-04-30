@@ -14,7 +14,7 @@ class TicketAdmin(admin.ModelAdmin):
     thumbnail_preview.allow_tags = True
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['title', 'description', 'user', 'ticket', 'created_at', 'updated_at',] 
+    list_display = ['title_review', 'description_review', 'user', 'ticket', 'created_at', 'updated_at',] 
 
 
 admin.site.register(Ticket, TicketAdmin)

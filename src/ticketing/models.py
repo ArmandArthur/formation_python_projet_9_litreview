@@ -23,11 +23,11 @@ class Ticket(models.Model):
         return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse('list_flux')
+        return reverse('list_posts')
     
 class Review(models.Model):
-    title = models.CharField(max_length=128)
-    description = models.TextField(max_length=2038, blank=True)
+    title_review = models.CharField(max_length=128)
+    description_review = models.TextField(max_length=2038, blank=True)
     ticket: Ticket = models.ForeignKey(to=Ticket,
                                    on_delete=models.CASCADE, related_name = 'reviews_rel')
     user: User = models.ForeignKey(to=settings.AUTH_USER_MODEL,
@@ -36,4 +36,4 @@ class Review(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title_review}"

@@ -1,0 +1,53 @@
+.container-posts{
+    padding: 10px 100px;
+    border: 1px solid black;
+}
+.container-posts div.ticket
+{
+    margin: 20px 0px;
+    border: 1px solid black;
+
+}
+.container-posts div.review
+{
+    margin: 20px 0px;
+    border: 1px solid black;
+    background-color:khaki;
+}
+.container-posts div.review .ticket{
+    margin: 20px 10px;
+    background-color: white;
+}
+.container-posts div.review .ticket {
+    margin: 20px 10px;
+    clear: right;
+}
+.container-posts div.answer{
+    float:right;
+    clear:right;
+}
+.container-posts div.content{
+    padding: 40px 20px;
+    overflow:hidden;
+}
+
+.container-posts div.review .title,
+.container-posts div.ticket .title
+{
+    padding: 10px;
+    color: white;
+    background: black;
+}
+.container-posts div.review > .title
+{
+    background: green;
+}
+.container-posts div.review .author,
+.container-posts div.ticket .author
+{
+    float:right;
+    color:grey;
+    font-size: 10px;
+    font-style: italic;
+    clear:right;
+}

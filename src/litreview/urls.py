@@ -26,7 +26,7 @@ urlpatterns = [
     path('ticketing/', include('ticketing.urls')),
     path('users/', include('users.urls')),
     path('subscribe/', include('subscribe.urls')),
-
+    path('posts/', include('posts.urls')),
     # path('', include('account.urls')),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'users',
     'ticketing',
     'subscribe',
-    'flux'
+    'flux',
+    'posts'
 ]
 
 MIDDLEWARE = [
