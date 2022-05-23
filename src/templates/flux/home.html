@@ -6,28 +6,61 @@
     {% for post in post_list %}
         {% if post.content_type == 'TICKET' %}
         <div class="ticket">
-            <div class="title">{{ post.id }} - {{ post.title }} </div>
+            <div class="title">{{ post.title }} </div>
             <div class="content">
                 {% if post.image  %}
                     <img src="/media/{{ post.image }}" width="150" height="150"></img>
                 {% endif %}
                 <div>{{ post.description }}</div>
-                {% if post.reviews_rel.all|length == 0 %}
-                    <div class="answer">
-                        <a href="{% url 'answer_ticket' post.id %}">Répondre une critique</a>
-                    </div>
-                {% endif %}
                 <div class="author">Ecrit par {{ post.user.username }} à {% language 'fr' %}{{ post.created_at|date:'d F Y h:i' }}{% endlanguage %}</div>
+                {% if post.reviews_rel == '' %}
+                <div class="answer">
+                    <a href="{% url 'answer_ticket' post.id %}">Répondre une critique</a>
+                </div>
+            {% else %}
+                {% if post.reviews_rel.user.id == owner.id %}
+                <div class="review">
+                    <div class="title">{{ post.reviews_rel.title_review }} </div>
+                    <div class="content">
+                        {% if post.reviews_rel.note == "1"  %}
+                            <div><span class="stars-container stars-20">★★★★★</span></div>
+                        {% elif post.reviews_rel.note == "2"  %}
+                            <div><span class="stars-container stars-40">★★★★★</span></div>
+                        {% elif post.reviews_rel.note == "3"  %}
+                            <div><span class="stars-container stars-60">★★★★★</span></div>
+                        {% elif post.reviews_rel.note == "4"  %}
+                            <div><span class="stars-container stars-80">★★★★★</span></div>
+                        {% else  %}
+                            <div><span class="stars-container stars-100">★★★★★</span></div>
+                        {% endif %}
+                        {{ post.reviews_rel.description_review }}
+                        <div class="author" >Ecrit par {{ post.reviews_rel.user.username }} à {% language 'fr' %}{{ post.reviews_rel.created_at|date:'d F Y h:i' }}{% endlanguage %}</div>
+
+                    </div>
+                </div>
+                {% endif %}
+            {% endif %}
             </div>
         </div> 
         {% elif post.content_type == 'REVIEW' %}
         <div class="review">
-            <div class="title">{{ post.id }} - {{ post.title_review }} </div>
+            <div class="title">{{ post.title_review }} </div>
             <div class="content">
                 <div>{{ post.description_review }}</div>
+                {% if post.note == "1"  %}
+                    <div><span class="stars-container stars-20">★★★★★</span></div>
+                {% elif post.note == "2"  %}
+                    <div><span class="stars-container stars-40">★★★★★</span></div>
+                {% elif post.note == "3"  %}
+                    <div><span class="stars-container stars-60">★★★★★</span></div>
+                {% elif post.note == "4"  %}
+                    <div><span class="stars-container stars-80">★★★★★</span></div>
+                {% else  %}
+                    <div><span class="stars-container stars-100">★★★★★</span></div>
+                {% endif %}
                 <div class="author" >Ecrit par {{ post.user.username }} à {% language 'fr' %}{{ post.created_at|date:'d F Y h:i' }}{% endlanguage %}</div>
                 <div class="ticket">
-                    <div class="title">{{ post.ticket.id }} - {{ post.ticket.title }} </div>
+                    <div class="title">{{ post.ticket.title }} </div>
                     <div class="content">
                         {% if post.ticket.image  %}
                             <img src="/media/{{ post.ticket.image }}" width="50" height="50"></img>

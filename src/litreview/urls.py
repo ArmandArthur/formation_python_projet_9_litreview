@@ -25,6 +25,7 @@ urlpatterns = [
     path('flux/', include('flux.urls')),
     path('ticketing/', include('ticketing.urls')),
     path('users/', include('users.urls')),
+    path('', include('users.urls')),
     path('subscribe/', include('subscribe.urls')),
     path('posts/', include('posts.urls')),
     # path('', include('account.urls')),

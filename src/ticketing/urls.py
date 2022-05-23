@@ -8,7 +8,8 @@ urlpatterns = [
     path('review_with_ticket/update/<int:pk>', views.ReviewWithTicket.as_view(), name='update_review_with_ticket'),
     path('ticket/update/<int:pk>', views.TicketUpdateView.as_view(), name='update_ticket'),
     path('ticket/delete/<int:pk>', views.TicketDeleteView.as_view(), name='delete_ticket'),
-    path('review/delete/<int:pk>', views.ReviewDeleteView.as_view(), name='delete_review')
+    path('review/delete/<int:pk>', views.ReviewDeleteView.as_view(), name='delete_review'),
+    path('review_without_ticket/update/<int:pk>', views.ReviewWithoutTicket.as_view(), name='update_review_without_ticket'),
 
     # path('ticket/detail/<int:pk>', views.TicketDetailView.as_view(), name='detail_ticket'),
     # path('articles/<int:year>/', views.year_archive),

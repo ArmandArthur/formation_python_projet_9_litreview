@@ -1,9 +1,12 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Ticket, Review
+from django.utils.decorators import method_decorator
+from .decorators import is_owner_review, is_owner_ticket
 from multi_form_view import MultiModelFormView
 from ticketing.forms import TicketForm, ReviewForm
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
     model = Ticket
@@ -18,7 +21,13 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
 class TicketUpdateView(LoginRequiredMixin, UpdateView):
     model = Ticket
     fields = ['title','description', 'image']
+    def get_success_url(self):
+        return reverse_lazy('list_posts')
     
+    @method_decorator(is_owner_ticket)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     # session
     def form_valid(self, form):
         form.instance.user_id = self.request.user.id
@@ -26,6 +35,10 @@ class TicketUpdateView(LoginRequiredMixin, UpdateView):
 
 class TicketDeleteView(LoginRequiredMixin, DeleteView):
     model = Ticket
+
+    @method_decorator(is_owner_ticket)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_success_url(self):
         return reverse_lazy('list_posts')
@@ -36,6 +49,10 @@ class ReviewWithTicket(MultiModelFormView):
         'review_form' : ReviewForm,
     }
     template_name = 'ticketing/review_with_ticket_form.html'
+
+    @method_decorator(is_owner_review)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     # Update
     def get_objects(self):
@@ -65,8 +82,23 @@ class ReviewWithTicket(MultiModelFormView):
         review.save()
         return super(ReviewWithTicket, self).forms_valid(forms)
 
+class ReviewWithoutTicket(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['title_review','description_review', 'note']
+
+    @method_decorator(is_owner_review)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('list_posts')
+
 class ReviewDeleteView(LoginRequiredMixin, DeleteView):
     model = Review
+
+    @method_decorator(is_owner_review)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_success_url(self):
         return reverse_lazy('list_posts')

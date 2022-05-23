@@ -23,15 +23,17 @@ class FluxListView(LoginRequiredMixin, ListView):
             key=lambda post: post.created_at, 
             reverse=True
         )
+
         context.update({
-            'post_list': posts
+            'post_list': posts,
+            'owner': CustomUser.objects.get(id=self.request.user.id)
         })
         return context
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
     success_url = reverse_lazy('list_flux')
-    fields = ['title','description','ticket']
+    fields = ['title_review', 'description_review', 'note', 'ticket']
 
     template_name = 'flux/review_form.html'
 

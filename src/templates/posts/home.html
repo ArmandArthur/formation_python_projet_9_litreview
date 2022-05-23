@@ -1,5 +1,5 @@
 {% extends 'base_connected.html' %}
-{% block title %}<title>Page flux</title>{% endblock title %}
+{% block title %}<title>Mes posts</title>{% endblock title %}
 {% load i18n %}
 {% block content %}
     <div class="container-posts">
@@ -36,6 +36,17 @@
                 <div class="title">{{ post.id }} - {{ post.title_review }} </div>
                 <div class="content">
                     <div>{{ post.description_review }}</div>
+                    {% if post.note == "1"  %}
+                        <div><span class="stars-container stars-20">★★★★★</span></div>
+                    {% elif post.note == "2"  %}
+                        <div><span class="stars-container stars-40">★★★★★</span></div>
+                    {% elif post.note == "3"  %}
+                        <div><span class="stars-container stars-60">★★★★★</span></div>
+                    {% elif post.note == "4"  %}
+                        <div><span class="stars-container stars-80">★★★★★</span></div>
+                    {% else  %}
+                        <div><span class="stars-container stars-100">★★★★★</span></div>
+                    {% endif %}
                     <div class="author" >
                         Ecrit par {{ post.user.username }} à {% language 'fr' %}{{ post.created_at|date:'d F Y h:i' }}{% endlanguage %}
                         {% if post.updated_at|date:"Y-m-d H:i:s" != post.created_at|date:"Y-m-d H:i:s"  %}
@@ -44,8 +55,13 @@
                         {% endif %}
                     </div>
                     <div class="answer">
-                        <a href="{% url 'update_review_with_ticket' post.id %}"><button>Modifier la critique</button></a>
-                        <a href="{% url 'delete_review' post.id %}"><button>Supprimer la critique</button></a>
+                        {% if  post.user.id != post.ticket.user.id  %}
+                            <a href="{% url 'update_review_without_ticket' post.id %}"><button>Modifier la critique</button></a>
+                            <a href="{% url 'delete_review' post.id %}"><button>Supprimer la critique</button></a>
+                        {% else %}
+                            <a href="{% url 'update_review_with_ticket' post.id %}"><button>Modifier la critique</button></a>
+                            <a href="{% url 'delete_review' post.id %}"><button>Supprimer la critique</button></a>
+                        {% endif %}
                     </div>
                     <div class="ticket">
                         <div class="title">{{ post.ticket.id }} - {{ post.ticket.title }} </div>
@@ -61,9 +77,12 @@
                                 Modifié le {% language 'fr' %}{{ post.ticket.updated_at|date:'d F Y h:i' }}{% endlanguage %}
                                 {% endif %}
                             </div>
+                            {% if  post.user.id == post.ticket.user.id  %}
                             <div class="answer">
                                 <a href="{% url 'update_ticket' post.ticket.id %}"><button>Modifier le ticket</button></a>
                             </div>
+                            {% endif %}
+
                         </div>
                     </div> 
                 </div>

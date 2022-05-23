@@ -6,5 +6,6 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='account_signup'),
     path('login/', auth_views.LoginView.as_view(), name='account_login'),
+    path('', auth_views.LoginView.as_view(), name='account_login'),
     path("logout/", LogoutView.as_view(), name="logout"),
 ]
