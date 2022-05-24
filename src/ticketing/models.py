@@ -5,6 +5,9 @@ from django.urls import reverse
 from django.utils.html import mark_safe
 
 class Ticket(models.Model):
+    """
+        Model ticket
+    """
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=2038, blank=True)
     user: User = models.ForeignKey(to=settings.AUTH_USER_MODEL,
@@ -16,6 +19,9 @@ class Ticket(models.Model):
 
     @property
     def thumbnail_preview(self):
+        """
+            Config admin
+        """
         if self.image:
             return mark_safe('<img src="{}" width="100" height="100" />'.format(self.image.url))
         return ""
@@ -27,6 +33,9 @@ class Ticket(models.Model):
         return reverse('list_posts')
     
 class Review(models.Model):
+    """
+        Model review
+    """
     title_review = models.CharField(max_length=128)
     description_review = models.TextField(max_length=2038, blank=True)
     choices_note = (

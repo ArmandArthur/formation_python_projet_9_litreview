@@ -1,0 +1,173 @@
+README.md:7:16: E999 SyntaxError: unterminated string literal (detected at line 7)
+requirements.txt:1:13: E999 SyntaxError: invalid syntax
+src/flux/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+src/flux/models.py:1:1: F401 'django.db.models' imported but unused
+src/flux/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+src/flux/urls.py:7:80: E501 line too long (91 > 79 characters)
+src/flux/urls.py:8:2: W292 no newline at end of file
+src/flux/views.py:3:1: F401 'django.views.generic.edit.FormView' imported but unused
+src/flux/views.py:11:1: F401 'django.db.models.Q' imported but unused
+src/flux/views.py:13:1: E302 expected 2 blank lines, found 1
+src/flux/views.py:19:80: E501 line too long (129 > 79 characters)
+src/flux/views.py:20:80: E501 line too long (129 > 79 characters)
+src/flux/views.py:22:37: W291 trailing whitespace
+src/flux/views.py:23:46: W291 trailing whitespace
+src/flux/views.py:33:1: E302 expected 2 blank lines, found 1
+src/flux/views.py:41:33: E201 whitespace after '('
+src/flux/views.py:43:72: E231 missing whitespace after ':'
+src/flux/views.py:43:80: E501 line too long (83 > 79 characters)
+src/flux/views.py:60:23: W292 no newline at end of file
+src/litreview/settings.py:25:80: E501 line too long (81 > 79 characters)
+src/litreview/settings.py:64:39: E231 missing whitespace after ','
+src/litreview/settings.py:96:80: E501 line too long (91 > 79 characters)
+src/litreview/settings.py:99:80: E501 line too long (81 > 79 characters)
+src/litreview/settings.py:102:80: E501 line too long (82 > 79 characters)
+src/litreview/settings.py:105:80: E501 line too long (83 > 79 characters)
+src/litreview/settings.py:140:80: E501 line too long (84 > 79 characters)
+src/litreview/settings.py:149:46: W292 no newline at end of file
+src/litreview/urls.py:32:1: W293 blank line contains whitespace
+src/litreview/urls.py:35:1: W391 blank line at end of file
+src/posts/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+src/posts/models.py:1:1: F401 'django.db.models' imported but unused
+src/posts/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+src/posts/urls.py:7:1: W293 blank line contains whitespace
+src/posts/urls.py:8:2: W292 no newline at end of file
+src/posts/views.py:3:1: F401 'django.views.generic.edit.FormView' imported but unused
+src/posts/views.py:18:80: E501 line too long (118 > 79 characters)
+src/posts/views.py:19:80: E501 line too long (118 > 79 characters)
+src/posts/views.py:21:37: W291 trailing whitespace
+src/posts/views.py:22:46: W291 trailing whitespace
+src/posts/views.py:30:1: E302 expected 2 blank lines, found 1
+src/posts/views.py:33:22: E231 missing whitespace after ','
+src/posts/views.py:33:36: E231 missing whitespace after ','
+src/posts/views.py:38:33: E201 whitespace after '('
+src/posts/views.py:40:72: E231 missing whitespace after ':'
+src/posts/views.py:40:80: E501 line too long (83 > 79 characters)
+src/posts/views.py:57:23: W292 no newline at end of file
+src/subscribe/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+src/subscribe/forms.py:4:1: E302 expected 2 blank lines, found 1
+src/subscribe/forms.py:5:1: W293 blank line contains whitespace
+src/subscribe/forms.py:10:80: E501 line too long (114 > 79 characters)
+src/subscribe/forms.py:11:1: W293 blank line contains whitespace
+src/subscribe/forms.py:12:54: W291 trailing whitespace
+src/subscribe/forms.py:13:1: W293 blank line contains whitespace
+src/subscribe/models.py:1:1: F401 'django.conf.settings' imported but unused
+src/subscribe/models.py:2:1: F401 'django.contrib.auth.models.User' imported but unused
+src/subscribe/models.py:4:1: F401 'django.urls.reverse' imported but unused
+src/subscribe/models.py:8:9: W292 no newline at end of file
+src/subscribe/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+src/subscribe/urls.py:6:80: E501 line too long (86 > 79 characters)
+src/subscribe/urls.py:7:80: E501 line too long (102 > 79 characters)
+src/subscribe/urls.py:9:2: W292 no newline at end of file
+src/subscribe/views.py:12:1: W293 blank line contains whitespace
+src/subscribe/views.py:27:1: W293 blank line contains whitespace
+src/subscribe/views.py:30:1: W293 blank line contains whitespace
+src/subscribe/views.py:33:1: W293 blank line contains whitespace
+src/subscribe/views.py:39:1: W293 blank line contains whitespace
+src/subscribe/views.py:40:1: E302 expected 2 blank lines, found 1
+src/subscribe/views.py:52:49: W292 no newline at end of file
+src/subscribe/migrations/0001_initial.py:17:80: E501 line too long (117 > 79 characters)
+src/ticketing/admin.py:7:80: E501 line too long (101 > 79 characters)
+src/ticketing/admin.py:7:100: E231 missing whitespace after ','
+src/ticketing/admin.py:16:1: E302 expected 2 blank lines, found 1
+src/ticketing/admin.py:17:80: E501 line too long (110 > 79 characters)
+src/ticketing/admin.py:17:109: E231 missing whitespace after ','
+src/ticketing/admin.py:17:111: W291 trailing whitespace
+src/ticketing/admin.py:21:41: W292 no newline at end of file
+src/ticketing/decorators.py:5:1: E302 expected 2 blank lines, found 1
+src/ticketing/decorators.py:6:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:7:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:8:9: E117 over-indented
+src/ticketing/decorators.py:10:43: E203 whitespace before ':'
+src/ticketing/decorators.py:17:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:19:1: E302 expected 2 blank lines, found 1
+src/ticketing/decorators.py:20:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:21:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:22:9: E117 over-indented
+src/ticketing/decorators.py:24:43: E203 whitespace before ':'
+src/ticketing/decorators.py:30:3: E111 indentation is not a multiple of 4
+src/ticketing/decorators.py:30:14: W292 no newline at end of file
+src/ticketing/forms.py:5:1: E302 expected 2 blank lines, found 1
+src/ticketing/forms.py:16:64: W292 no newline at end of file
+src/ticketing/models.py:7:1: E302 expected 2 blank lines, found 1
+src/ticketing/models.py:20:80: E501 line too long (96 > 79 characters)
+src/ticketing/models.py:28:1: W293 blank line contains whitespace
+src/ticketing/models.py:29:1: E302 expected 2 blank lines, found 1
+src/ticketing/models.py:41:36: E128 continuation line under-indented for visual indent
+src/ticketing/models.py:41:74: E251 unexpected spaces around keyword / parameter equals
+src/ticketing/models.py:41:76: E251 unexpected spaces around keyword / parameter equals
+src/ticketing/models.py:41:80: E501 line too long (90 > 79 characters)
+src/ticketing/models.py:43:33: E128 continuation line under-indented for visual indent
+src/ticketing/models.py:48:38: W292 no newline at end of file
+src/ticketing/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+src/ticketing/urls.py:7:80: E501 line too long (101 > 79 characters)
+src/ticketing/urls.py:8:80: E501 line too long (115 > 79 characters)
+src/ticketing/urls.py:9:80: E501 line too long (91 > 79 characters)
+src/ticketing/urls.py:10:80: E501 line too long (91 > 79 characters)
+src/ticketing/urls.py:11:80: E501 line too long (91 > 79 characters)
+src/ticketing/urls.py:12:80: E501 line too long (124 > 79 characters)
+src/ticketing/urls.py:14:80: E501 line too long (93 > 79 characters)
+src/ticketing/urls.py:17:80: E501 line too long (81 > 79 characters)
+src/ticketing/urls.py:18:2: W292 no newline at end of file
+src/ticketing/views.py:9:1: F401 'django.http.HttpResponseRedirect' imported but unused
+src/ticketing/views.py:11:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:13:22: E231 missing whitespace after ','
+src/ticketing/views.py:15:1: W293 blank line contains whitespace
+src/ticketing/views.py:21:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:23:22: E231 missing whitespace after ','
+src/ticketing/views.py:24:5: E301 expected 1 blank line, found 0
+src/ticketing/views.py:26:1: W293 blank line contains whitespace
+src/ticketing/views.py:36:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:46:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:48:22: E203 whitespace before ':'
+src/ticketing/views.py:49:22: E203 whitespace before ':'
+src/ticketing/views.py:85:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:87:29: E231 missing whitespace after ','
+src/ticketing/views.py:96:1: E302 expected 2 blank lines, found 1
+src/ticketing/views.py:104:42: W292 no newline at end of file
+src/ticketing/migrations/0001_initial.py:17:80: E501 line too long (117 > 79 characters)
+src/ticketing/migrations/0001_initial.py:27:80: E501 line too long (117 > 79 characters)
+src/ticketing/migrations/0002_initial.py:21:80: E501 line too long (110 > 79 characters)
+src/ticketing/migrations/0002_initial.py:26:80: E501 line too long (104 > 79 characters)
+src/ticketing/migrations/0002_initial.py:31:80: E501 line too long (110 > 79 characters)
+src/ticketing/migrations/0003_alter_review_ticket.py:17:80: E501 line too long (132 > 79 characters)
+src/ticketing/migrations/0004_ticket_image.py:16:80: E501 line too long (81 > 79 characters)
+src/ticketing/migrations/0006_ticket_note.py:9:80: E501 line too long (84 > 79 characters)
+src/ticketing/migrations/0006_ticket_note.py:16:80: E501 line too long (133 > 79 characters)
+src/ticketing/migrations/0007_remove_ticket_note_review_note.py:20:80: E501 line too long (133 > 79 characters)
+src/ticketing/migrations/0008_alter_review_ticket.py:17:80: E501 line too long (135 > 79 characters)
+src/users/admin.py:8:1: E302 expected 2 blank lines, found 1
+src/users/admin.py:11:1: W293 blank line contains whitespace
+src/users/admin.py:12:1: E302 expected 2 blank lines, found 1
+src/users/admin.py:19:35: E231 missing whitespace after ','
+src/users/admin.py:25:31: E231 missing whitespace after ','
+src/users/admin.py:25:80: E501 line too long (104 > 79 characters)
+src/users/admin.py:26:9: E124 closing bracket does not match visual indentation
+src/users/admin.py:33:1: E305 expected 2 blank lines after class or function definition, found 1
+src/users/admin.py:36:1: W391 blank line at end of file
+src/users/forms.py:11:1: W293 blank line contains whitespace
+src/users/forms.py:12:44: W291 trailing whitespace
+src/users/forms.py:19:1: E302 expected 2 blank lines, found 1
+src/users/managers.py:2:50: E272 multiple spaces before keyword
+src/users/models.py:8:1: E302 expected 2 blank lines, found 1
+src/users/models.py:14:1: W293 blank line contains whitespace
+src/users/models.py:15:5: E265 block comment should start with '# '
+src/users/models.py:16:80: E501 line too long (104 > 79 characters)
+src/users/models.py:17:1: W293 blank line contains whitespace
+src/users/tests.py:9:80: E501 line too long (80 > 79 characters)
+src/users/tests.py:29:80: E501 line too long (90 > 79 characters)
+src/users/views.py:10:1: W293 blank line contains whitespace
+src/users/views.py:12:40: W292 no newline at end of file
+src/users/migrations/0001_initial.py:20:80: E501 line too long (117 > 79 characters)
+src/users/migrations/0001_initial.py:21:80: E501 line too long (88 > 79 characters)
+src/users/migrations/0001_initial.py:22:80: E501 line too long (103 > 79 characters)
+src/users/migrations/0001_initial.py:23:80: E501 line too long (196 > 79 characters)
+src/users/migrations/0001_initial.py:24:80: E501 line too long (104 > 79 characters)
+src/users/migrations/0001_initial.py:27:80: E501 line too long (89 > 79 characters)
+src/users/migrations/0001_initial.py:28:80: E501 line too long (266 > 79 characters)
+src/users/migrations/0001_initial.py:29:80: E501 line too long (96 > 79 characters)
+src/users/migrations/0001_initial.py:30:80: E501 line too long (229 > 79 characters)
+src/users/migrations/0002_alter_customuser_subscribes.py:17:80: E501 line too long (117 > 79 characters)
+src/users/migrations/0003_alter_customuser_subscribes.py:17:80: E501 line too long (82 > 79 characters)
+src/users/migrations/0005_alter_customuser_subscribes.py:17:80: E501 line too long (104 > 79 characters)
+src/users/migrations/0006_alter_customuser_subscribes.py:17:80: E501 line too long (108 > 79 characters)

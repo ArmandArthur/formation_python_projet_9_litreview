@@ -1,15 +1,17 @@
-
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, FormView
-from django import forms
-from django.contrib.auth.mixins import LoginRequiredMixin
-from ticketing.models import Ticket, Review
 from itertools import chain
 from django.db.models import CharField, Value
 from django.urls import reverse_lazy
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView
+from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
+from ticketing.models import Ticket, Review
 
 
 class PostsListView(LoginRequiredMixin, ListView):
+    """
+        Liste de mes posts
+    """
     model = Ticket
     template_name = 'posts/home.html'
 
@@ -18,8 +20,8 @@ class PostsListView(LoginRequiredMixin, ListView):
         tickets = Ticket.objects.filter(user=self.request.user.id).annotate(content_type=Value('TICKET', CharField()))
         reviews = Review.objects.filter(user=self.request.user.id).annotate(content_type=Value('REVIEW', CharField()))
         posts = sorted(
-            chain(reviews, tickets), 
-            key=lambda post: post.created_at, 
+            chain(reviews, tickets),
+            key=lambda post: post.created_at,
             reverse=True
         )
         context.update({
@@ -28,6 +30,9 @@ class PostsListView(LoginRequiredMixin, ListView):
         return context
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
+    """
+        Création d'une review
+    """
     model = Review
     success_url = reverse_lazy('list_flux')
     fields = ['title','description','ticket']

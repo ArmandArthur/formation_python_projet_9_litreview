@@ -1,6 +1,6 @@
 from django.urls import path
-
 from . import views
+
 
 urlpatterns = [
     path('home', views.FluxListView.as_view(), name='list_flux'),

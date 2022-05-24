@@ -6,10 +6,16 @@ from .models import CustomUser
 
 # Créer une table transitoire car relation ManyToMany sur elle même.
 class CustomUsersInline(admin.TabularInline):
+    """
+        Sinon bug admin
+    """
     model = CustomUser.subscribes.through
     fk_name = 'from_customuser'
     
 class CustomUserAdmin(UserAdmin):
+    """ 
+        Définition des forms + champs à afficher
+    """
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser

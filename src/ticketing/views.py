@@ -1,14 +1,17 @@
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Ticket, Review
-from django.utils.decorators import method_decorator
-from .decorators import is_owner_review, is_owner_ticket
 from multi_form_view import MultiModelFormView
+from django.utils.decorators import method_decorator
 from ticketing.forms import TicketForm, ReviewForm
-from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
+from .decorators import is_owner_review, is_owner_ticket
+from .models import Ticket, Review
+
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
+    """
+        Ticket create view
+    """
     model = Ticket
     fields = ['title','description', 'image']
     # permission_required = 'ticketing.add_ticket'
@@ -19,11 +22,14 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 class TicketUpdateView(LoginRequiredMixin, UpdateView):
+    """
+        Ticket update view + securisation
+    """
     model = Ticket
     fields = ['title','description', 'image']
     def get_success_url(self):
         return reverse_lazy('list_posts')
-    
+
     @method_decorator(is_owner_ticket)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -34,6 +40,9 @@ class TicketUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 class TicketDeleteView(LoginRequiredMixin, DeleteView):
+    """
+        Ticket delete view + securisation
+    """
     model = Ticket
 
     @method_decorator(is_owner_ticket)
@@ -44,6 +53,9 @@ class TicketDeleteView(LoginRequiredMixin, DeleteView):
         return reverse_lazy('list_posts')
 
 class ReviewWithTicket(MultiModelFormView):
+    """
+        Review form + ticket form + securisation
+    """
     form_classes = {
         'ticket_form' : TicketForm,
         'review_form' : ReviewForm,
@@ -83,6 +95,9 @@ class ReviewWithTicket(MultiModelFormView):
         return super(ReviewWithTicket, self).forms_valid(forms)
 
 class ReviewWithoutTicket(LoginRequiredMixin, UpdateView):
+    """
+        Review update + securisation
+    """
     model = Review
     fields = ['title_review','description_review', 'note']
 
@@ -94,6 +109,9 @@ class ReviewWithoutTicket(LoginRequiredMixin, UpdateView):
         return reverse_lazy('list_posts')
 
 class ReviewDeleteView(LoginRequiredMixin, DeleteView):
+    """
+        Review delete + securisation
+    """
     model = Review
 
     @method_decorator(is_owner_review)
