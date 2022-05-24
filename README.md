@@ -8,6 +8,7 @@ Phrase de présentation du projet/programme.
 - [Installer les dépendances et django:](#installer-les-dépendances-et-django)
 - [Lancer le programme:](#lancer-le-programme)
 - [Installer et run flake8:](#installer-et-run-flake8)
+- [Aller sur l'applicaton:](#aller-sur-lapplicaton)
 
 # Cloner le dépôt du projet:
 
@@ -37,5 +38,11 @@ Phrase de présentation du projet/programme.
 
 `pip install flake8`<br />
 `flake8 * > flake8_report.txt`
+
+# Aller sur l'applicaton:
+
+`http://127.0.0.1:8000/`<br />
+`http://127.0.0.1:8000/admin` (administration)
+
 
 
