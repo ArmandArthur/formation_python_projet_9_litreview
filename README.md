@@ -31,6 +31,6 @@ Phrase de présentation du projet/programme.
 # Installer et run flake8:
 
 `pip install flake8`<br />
-`flake8 *.py > flake8_report.txt`
+`flake8 * > flake8_report.txt`
 
 
