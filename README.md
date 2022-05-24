@@ -5,6 +5,7 @@ Phrase de présentation du projet/programme.
 - [Cloner le dépôt du projet:](#cloner-le-dépôt-du-projet)
 - [Aller sur le bon répertoire:](#aller-sur-le-bon-répertoire)
 - [Installer l'environnement virtuel:](#installer-lenvironnement-virtuel)
+- [Installer les dépendances et django:](#installer-les-dépendances-et-django)
 - [Lancer le programme:](#lancer-le-programme)
 - [Installer et run flake8:](#installer-et-run-flake8)
 
@@ -21,6 +22,10 @@ Phrase de présentation du projet/programme.
 `python3 -m venv venv`<br />
 `source ./venv/bin/activate` (UNIX)<br />
 `./venv/scripts/activate` (windows)
+
+# Installer les dépendances et django:
+
+`pip install -r requirements.txt`
 
 # Lancer le programme:
 
