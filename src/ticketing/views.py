@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from multi_form_view import MultiModelFormView
 from django.utils.decorators import method_decorator
 from ticketing.forms import TicketForm, ReviewForm
-from .decorators import is_owner_review, is_owner_ticket
+from .decorators import is_owner
 from .models import Ticket, Review
 
 
@@ -30,7 +30,7 @@ class TicketUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('list_posts')
 
-    @method_decorator(is_owner_ticket)
+    @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -45,7 +45,7 @@ class TicketDeleteView(LoginRequiredMixin, DeleteView):
     """
     model = Ticket
 
-    @method_decorator(is_owner_ticket)
+    @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -62,7 +62,7 @@ class ReviewWithTicket(MultiModelFormView):
     }
     template_name = 'ticketing/review_with_ticket_form.html'
 
-    @method_decorator(is_owner_review)
+    @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -101,7 +101,7 @@ class ReviewWithoutTicket(LoginRequiredMixin, UpdateView):
     model = Review
     fields = ['title_review','description_review', 'note']
 
-    @method_decorator(is_owner_review)
+    @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -114,7 +114,7 @@ class ReviewDeleteView(LoginRequiredMixin, DeleteView):
     """
     model = Review
 
-    @method_decorator(is_owner_review)
+    @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
